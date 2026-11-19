@@ -1,7 +1,9 @@
 #pragma once
 
+#include <string>
 #include <vector>
 #include "bidder.hpp"
+
 
 using namespace std;
 
@@ -46,4 +48,8 @@ public:
 
     // TODO: add any getters you need (e.g. getHighestBid(), getHighestBidder())
     // so Auction can print the auction result and bidder summary.
+
+    double getHighestBid();
+
+    Bidder *getHighestBidder();
 };

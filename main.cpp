@@ -36,14 +36,53 @@ int main()
   bidders.push_back(new Bidder("Scott", 4000, generateRandom(MIN_PROBABILITY, MAX_PROBABILITY), 2));
 
   // TODO: prompt the user for the item name and starting price.
+  string item;
+  double start_price;
+
+  cout << "Enter the item name: ";
+  getline(cin, item);
+
+  cout << "Enter the starting price";
+  cin >> start_price;
   // TODO: give the user the option to either start the auction with just
   // the preloaded bidders above, or add more bidders first (prompting for
   // each new bidder's name, budget, bid_probability, and bid_increase_perc).
+char choice;
+
+cout << "Do you want to add more bidders? (y/n)";
+cin >> choice;
+
+
+while (choice == 'y' || choice == 'Y')
+{
+  string name;
+  double budget;
+  double probability;
+  double increase;
+
+  cout <<"Enter bidder name: ";
+  cin >> name;
+
+  cout << "Enter budget: ";
+  cin >> budget;
+
+  cout << "Enter bid probability (0-100): ";
+  cin >> probability;
+
+  cout << "Enter bid increase multiplier";
+  cin >> increase;
+
+  bidders.push_back(new Bidder(name, budget, probability, increase));
+
+  cout << "Add another bidder? (y/n): ";
+  cin >> choice;
+}
+
 
   cout << "Starting Auction!!" << endl;
   cout << "------------------" << endl;
   Auction my_auction(bidders);
-  my_auction.simulate_auction("Antique Vase", 100);
+  my_auction.simulate_auction(item, start_price);
 
   for (Bidder *bidder : bidders)
   {

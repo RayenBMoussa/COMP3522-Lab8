@@ -10,6 +10,7 @@ then drives one auction from the opening bid to its result.
 */
 class Auction {
     Auctioneer auctioneer;
+    vector<Bidder *> bidders;
 
 public:
     /*

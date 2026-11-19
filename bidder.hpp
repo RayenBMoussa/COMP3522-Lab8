@@ -35,6 +35,10 @@ public:
     // TODO: add any getters you need (e.g. getName(), getHighestBid()) so
     // Auction can print the end-of-auction summary.
 
+    double getHighestBid();
+
+    string getName();
+
     friend ostream& operator<<(ostream &os, const Bidder& bidder) {
         os << bidder.name;
         return os;
